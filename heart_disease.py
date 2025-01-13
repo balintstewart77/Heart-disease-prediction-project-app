@@ -42,24 +42,24 @@ age_mapping = {
 HadAngina = st.selectbox("Have you had angina? (0=No, 1=Yes)", [0, 1])
 selected_age_label = st.selectbox(
     "Select your age range:",
-    list(age_mapping.keys())  # ["Age 18 to 24", "Age 25 to 29", ...]
+    list(age_mapping.keys()) 
 )
 age = age_mapping[selected_age_label]
 ChestScan = st.selectbox("Abnormal chest scan? (0=No, 1=Yes)", [0, 1])
 gen_health = st.selectbox("General Health (0=Excellent → 4=Poor)", [0, 1, 2, 3, 4])
-DifficultyWalking = st.selectbox("Difficulty Walking? (0=No, 1=Yes)", [0, 1])
 HadStroke = st.selectbox("Have you had a stroke? (0=No, 1=Yes)", [0, 1])
+DifficultyWalking = st.selectbox("Difficulty Walking? (0=No, 1=Yes)", [0, 1])
 diabetes_binary = st.selectbox("Are you diabetic? (0=No, 1=Yes)", [0, 1])
 
 # Create dataframe from model input
 input_data = pd.DataFrame({
-    "Angina": [HadAngina],
-    "Age": [age],
+    "HadAngina": [HadAngina],
+    "age": [age],
     "ChestScan": [ChestScan],
-    "GeneralHealth": [gen_health],
+    "gen_health": [gen_health],
+    "HadStroke": [HadStroke],
     "DifficultyWalking": [DifficultyWalking],
-    "Stroke": [HadStroke],
-    "Diabetes": [diabetes_binary]
+    "diabetes_binary": [diabetes_binary]
 })
 
 st.write("### Your Input Summary")
