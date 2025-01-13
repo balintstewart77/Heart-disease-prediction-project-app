@@ -49,17 +49,17 @@ ChestScan = st.selectbox("Abnormal chest scan? (0=No, 1=Yes)", [0, 1])
 gen_health = st.selectbox("General Health (0=Excellent → 4=Poor)", [0, 1, 2, 3, 4])
 DifficultyWalking = st.selectbox("Difficulty Walking? (0=No, 1=Yes)", [0, 1])
 HadStroke = st.selectbox("Have you had a stroke? (0=No, 1=Yes)", [0, 1])
-BMI = st.slider("BMI (Body Mass Index)", 12, 98, step = 2)
+diabetes_binary = st.selectbox("Are you diabetic? (0=No, 1=Yes)", [0, 1])
 
 # Create dataframe from model input
 input_data = pd.DataFrame({
-    "HadAngina": [HadAngina],
-    "age": [age],
+    "Angina": [HadAngina],
+    "Age": [age],
     "ChestScan": [ChestScan],
-    "gen_health": [gen_health],
+    "GeneralHealth": [gen_health],
     "DifficultyWalking": [DifficultyWalking],
-    "HadStroke": [HadStroke],
-    "BMI": [BMI]
+    "Stroke": [HadStroke],
+    "Diabetes": [diabetes_binary]
 })
 
 st.write("### Your Input Summary")
